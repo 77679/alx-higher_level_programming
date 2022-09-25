@@ -1,9 +1,16 @@
 #!/usr/bin/python3
-if __name__ == "__main__":
-    from sys import argv
-    l = len(argv)
-    print("{:d} {:s}{:s}".format(l - 1, "argument" if l <= 2 else "arguments",
-                                 "." if l == 1 else ":"))
-    for i, s in enumerate(argv):
-        if i > 0:
-            print("{:d}: {:s}".format(i, s))
+from sys import argv
+
+if __name__ == '__main__':
+    lon = len(argv) - 1
+    i = 1
+    if lon == 1:
+        print(lon, 'argument:')
+    elif lon == 0:
+        print(lon, 'arguments.')
+    else:
+        print(lon, 'arguments:')
+    for av in argv:
+        if i <= lon:
+            print("{:d}: {}".format(i, argv[i]))
+            i = i + 1
